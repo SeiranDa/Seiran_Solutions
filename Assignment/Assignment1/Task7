@@ -1,0 +1,18 @@
+
+These issues have the following impacts, which consequently raise risks:
+
+
+| Issue                                      | Impact                                   | Risk   | Reasoning                                                                           |
+| ------------------------------------------ | ---------------------------------------- | ------ | ----------------------------------------------------------------------------------- |
+| Mode mismatch after reconnect (1/25 cases) | UI and device state inconsistency        | High   | Incorrect mode shown to user, affects trust and correctness of feature              |
+| Android mode switch delay (4s vs 2s)       | Performance degradation, slower response | Medium | Functionality works but does not meet timing expectation, affecting user experience |
+| iOS battery warning wording                | User confusion                           | Low    | No functional impact, only user experience clarity issue                            |
+
+
+"Full release" is not recommended due to a core functional inconsistency (UI vs. device state mismatch) that undermines trust and correctness, despite its low frequency.
+"No release" is not recommended either as most functionality works correctly and the issues are limited in scope and not fully blocking.
+
+I therefore recommand a "conditional release":
+	1.Fix or mitigate the reconnect state mismatch (highest priority).
+	2.Investigate the Android performance delay, and adjust it after release if it’s stable.
+	3.Improve the iOS battery warning wording in the next release.
