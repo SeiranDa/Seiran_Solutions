@@ -1,0 +1,17 @@
+
+Here the goal is not just to validate functionality, but to validate that:
+
+- the devices stay consistent under real conditions and recover correctly after disruption
+- the user experience matchs expectations in everyday life
+
+So I could list some important aspects to explore:
+
+| # | Exploration Area          | Real-world situations to investigate                                                                             |
+| - | ------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| 1 | Daily usage behavior      | Mode switching while walking, commuting, driving, or multitasking (music, calls, video streaming)                |
+| 2 | Bluetooth stability       | Weak signal conditions, moving out of range, reconnect cycles, unpredictable disconnections                      |
+| 3 | Environmental conditions  | Noise Cancellation in traffic/trains/crowds, Transparency Mode in office/street, sudden noise changes            |
+| 4 | Battery scenarios         | Low battery behavior, long usage sessions, charging case interactions, auto reconnect during charging            |
+| 5 | Device switching          | Switching earbuds between different phones/tablets, multi-device pairing, app open on multiple devices           |
+| 6 | User interaction patterns | Rapid mode switching, accidental touches, switching modes while inserting/removing earbuds                       |
+| 7 | Edge & recovery cases     | App kill during mode change, earbuds placed in case while mode switching, recovery after restart or update       |
