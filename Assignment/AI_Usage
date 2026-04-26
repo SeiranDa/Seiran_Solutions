@@ -1,0 +1,37 @@
+AI Usage Reflection
+
+1. Which AI tool or LLM model did you use, and why did you choose it?
+I used ChatGPT (GPT-5.3). I chose this tool mainly to help clean up and structure my answers.
+
+
+2. How did you use it during the assignment?
+I used it as a support tool to identify mistakes and improve the structure and clarity of my answers. 
+It was not used to generate the core analysis.
+
+
+3. Approximately how much time did you spend using it?
+Approximately 1–2 hours in total, mainly during the writing and revewing phase of the assignment.
+
+
+4. Which part of your solution benefited the most from it?
+It was most useful for reviewing my answers and improving their clarity, consistency, and overall structure.
+
+
+5. What was the biggest drawback or limitation?
+The AI sometimes suggested changes to my conclusions that did not align with my experimental observations. 
+This highlighted that AI outputs cannot always be trusted in engineering analysis, especially from a QA perspective.
+
+
+6. How did you validate the AI-generated output before submitting your final answer?
+I validated all suggestions by comparing them with my own analysis and the actual experimental/log data. 
+I rejected thoes suggestions that were not supported by evidence.
+
+
+7. Were there any suggestions from the AI tool that you decided not to use? Why?
+Yes, I chose not to use suggestions that modified my conclusions when they conflicted with my experimental findings. 
+Maintaining accuracy based on real data was prioritized.
+
+
+8. What part of the final submission best reflects your own independent reasoning?
+All technical reasoning, analysis, and conclusions reflect my own independent work. 
+The AI was only used to improve presentation and polishing.
