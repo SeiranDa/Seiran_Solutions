@@ -1,0 +1,65 @@
+
+Detailed test cases in a standard format:
+
+============================================================================================================
+
+Test Case 1: Mode Switch When Device Is Connected
+
+Test Case ID: TC-01
+Title: Verify listening mode can be changed when device is connected
+
+
+Preconditions:
+Device is paired and in an active Bluetooth connection state with the app
+Device is in idle state
+
+
+Test Steps:
+1.Open the app.
+2.Ensure the device is connected.
+3.Set the listening mode as @Listening Mods.
+4.Confirm the selection.
+5.Verify the mode is applied successfully on both app and device.
+6.Repeat steps 3–5 for all @Listening Mods.
+
+
+Mode Table
+| @Listening Mods    |
+| ------------------ |
+| Noise Cancellation |
+| Transparency Mode  |
+
+
+
+Expected Result:
+Listening mode is successfully updated on the device.
+App UI reflects the newly selected mode.
+Device sends acknowledgment confirming mode change.
+
+============================================================================================================
+
+
+Test Case 2: Battery Level Display Accuracy
+
+Test Case ID: TC-02
+Title: Verify battery level is displayed correctly in the app
+
+
+Preconditions:
+Device is paired and in an active Bluetooth connection state with the app
+Device has measurable battery level (>10%)
+
+
+Test Steps:
+1.Open the app.
+2.Ensure the device is connected.
+3.Check the displayed battery level in the app.
+4.Compare it with the actual device battery level.
+5.Reduce device battery (e.g., by continuous audio streaming) to simulate battery level change.
+6.Observe updated battery level in the app.
+
+
+Expected Result:
+App displays battery level matching the device within acceptable tolerance.
+Battery updates are reflected correctly after change.
+No delay or incorrect values are shown in the UI.
