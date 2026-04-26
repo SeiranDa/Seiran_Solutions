@@ -1,0 +1,51 @@
+
+
+1.	Unclarity / Missing Requirements
+
+
+| # | Unclarity                                                | Requirement                                                                                                                                 | Impact                                                               |
+| - | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| 1 | What qualifies as “Product is connected”                 | Type of connection to device (Paired, Active, or Streaming) shall be clearly defined.                                                       | Impacts on changing listening mode by user                           |
+| 2 | Ambiguous Battery Threshold Definition: “Critically low” | Low battery shall be defined (e.g., whether 5% is inclusive/exclusive, behavior at exactly 5%, and handling of one earbud below threshold). | Impacts on user confusion and proper blocking of mode switching      |
+| 3 | Delay Constraint                                         | The response time requirement shall define whether the 2-second limit is a strict SLA or a best-effort target.                              | Impacts on how success or failure is measured                        |
+| 4 | Ambiguous “behave consistently on both iOS and Android”  | “Consistently” shall be defined (what exactly must match across iOS and Android).                                                           | Impacts on acceptable differences and implementation approach        |
+| 5 | Error Messaging                                          | The failure message for mode switching shall be clearly defined.                                                                            | Impacts on user experience consistency and error handling validation |
+| 6 | App–Firmware Version Mismatch Handling                   | How functionality is adjusted under version mismatch shall be defined.                                                                      | Impacts on compatibility handling and system behavior under mismatch |
+| 7 | Retry Mechanism                                          | It shall be defined whether automatic retry is required for failed mode switch attempts.                                                    | Impacts on failure handling strategy and acceptance criteria         |
+| 8 | Persistence Storage (Last Selected Mode)                 | It shall be defined where the last selected mode is stored (device, app, or both) and how conflicts are resolved.                           | Impacts on recovery behavior and user experience continuity          |
+| 9 | When should UI update?                                   | It shall be defined whether the app updates the listening mode based on user action or only after device confirmation.                      | Impacts on response speed and app–device consistency                 |
+
+
+2. Assumptions:
+
+| # | Assumption              | Description                                                                   |
+| - | ----------------------- | ----------------------------------------------------------------------------- |
+| 1 | Real-time Sync          | App receives timely updates for mode, battery, and connection status          |
+| 2 | Battery Accuracy        | Battery levels are accurate within acceptable tolerance                       |
+| 3 | Data Sync               | Battery updates are pushed periodically without manual refresh                |
+| 4 | Feature Support         | Device firmware supports both listening modes                                 |
+| 5 | Platform Consistency    | iOS and Android shall implement identical application logic                   |
+| 6 | Device Communication    | Device provides acknowledgment after mode change                              |
+| 7 | Device Capability       | Device supports simultaneous connection and control channel (audio + control) |
+| 8 | UI Interaction Handling | User action in UI is immediately captured and processed by app                |
+| 9 | Error Handling          | App can detect and handle errors from device communication                    |
+|10 | Device Readiness        | Device is ready to accept commands immediately after connection               |
+|11 | Operational Assumption  | Mode switching is supported during audio playback and calls                   |
+
+
+
+3.	Risks to Raise Before Testing:
+
+| # | Risk                                                                          | Priority |
+| - | ----------------------------------------------------------------------------- | -------- |
+| 1 | The app and device may show different active listening modes.                 | High     |
+| 2 | Mode switching may fail under poor Bluetooth conditions.                      | High     |
+| 3 | Mode switching may behave inconsistently during transitions between music     | High     |
+|   |		playback and phone calls.                                               |          |             
+| 4 | Mode switching may take longer than 2 seconds to apply.                       | High     |
+| 5 | The previous listening mode may not be correctly restored after reconnection. | High     |
+| 6 | Battery threshold behavior may be inconsistent around the 5% limit.           | Medium   |
+| 7 | The feature may not work correctly on older firmware versions.                | Medium   |
+| 8 | The feature may behave differently on iOS and Android platforms.              | Medium   |
+| 9 | Error messages may be unclear or not user-friendly.                           | Low      |
+
