@@ -1,0 +1,14 @@
+Test scenarios:
+
+| # | Test Scenario                                    | Description (Simple Steps)                                                                   |
+| - | ------------------------------------------------ | ---------------------------------------------------------------------------------------------|
+| 1 | Successful mode switch when device is connected  | 1. Connect to device  2. Select listening mode  3. Verify mode is applied                    |
+| 2 | Mode switch blocked when device is not connected | 1. Disconnect device  2. Try changing mode  3. Verify change is blocked                      |
+| 3 | Mode switch under low battery condition          | 1. Set battery ≤ 5%  2. Try changing mode  3. Verify expected behavior                       |
+| 4 | Mode switch during music playback                | 1. Connect to device 2. Start music playback 3. Change mode 4. Verify mode applies correctly |
+| 5 | Device acknowledgment after mode change          | 1. Connect to device  2. Change mode  3. Verify device sends acknowledgment                  |
+| 6 | Mode persistence after reconnect                 | 1. Set a mode  2. Disconnect device  3. Reconnect device  4. Verify last mode restored       |
+| 7 | App–firmware version mismatch behavior           | 1. Use incompatible firmware  2. Open app  3. Verify system behavior                         |
+| 8 | Platform consistency (iOS vs Android)            | 1. Run on iOS  2. Run on Android  3. Compare mode behavior consistency                       |
+| 9 | Connection loss during mode switch               | 1. Start mode change 2. Disconnect device 3. Verify recovery behavior                        |
+|10 | Response time validation                         | 1. Connect to device  2. Change mode  3. Measure time to apply mode                          |
