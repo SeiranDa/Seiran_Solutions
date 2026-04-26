@@ -1,0 +1,52 @@
+Bug Report
+
+Title: Mode desync between app UI and earbuds state after switching to Transparency Mode
+
+Bug ID: B-01
+
+
+Environment:
+App version: (--)
+Earbuds firmware: (--)
+Device OS: iOS / Android (both observed)
+Connection: Bluetooth (active)
+
+
+Description:
+When the user switches to Transparency Mode, the app immediately updates the UI to show Transparency Mode as active. 
+However, the earbuds continue operating in Noise Cancellation Mode for 8–12 seconds. In some cases, after placing 
+earbuds in the case and reconnecting, the app incorrectly still shows Transparency Mode while the earbuds are actually
+in Noise Cancellation Mode.
+
+
+Steps to Reproduce:
+1.Connect earbuds to the app via Bluetooth.
+2.Ensure earbuds are in Noise Cancellation Mode.
+3.Select Transparency Mode in the app.
+4.Observe app UI immediately after selection.
+5.Wait 8–12 seconds and observe earbuds behavior.
+6.Place earbuds in charging case and reconnect.
+7.Check mode state in both app and earbuds.
+
+
+Expected Result:
+1.Earbuds should switch to Transparency Mode immediately or within 2 seconds.
+2.App UI should reflect only the actual state of the earbuds.
+3.After reconnection, both app and earbuds should show the same active mode.
+
+
+Actual Result:
+1.App immediately shows Transparency Mode as active.
+2.Earbuds remain in Noise Cancellation Mode for 8–12 seconds.
+3.After reconnect, app may still show Transparency Mode while earbuds are in Noise Cancellation Mode.
+
+
+Impact:
+1.UI and device state are inconsistent.
+2.Users are misled about the actual active listening mode.
+3.Potential safety and user experience concerns due to incorrect audio mode perception.
+
+
+Severity: High
+Priority: High
+Type: Functional
