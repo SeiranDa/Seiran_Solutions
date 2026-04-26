@@ -1,0 +1,69 @@
+
+
+1. What I would test first and why:
+
+I validate the end-to-end user flow: connect → change mode → verify device → reconnect → verify persistence. So:
+
+|#| Priority | What to Test First                       | Why                                                                            |
+|-| -------- | -----------------------------------------| ------------------------------------------------------------------------------ |
+|1| High     | Device connection + disconnection flow   | Core dependency for all features. nothing else works without stable connection |
+|2| High     | Listening mode switching                 | feature functionality and primary user interaction                             |
+|3| High     | Mode sync between app and device         | Ensures correctness of system state (critical for trust)                       |
+
+
+
+
+2. What areas I would prioritize most:
+
+These areas directly impact user trust in a premium audio product, where delays or inconsistencies are highly noticeable.
+
+|#| Priority Area      | Focus                                            |
+|-| ------------------ | ------------------------------------------------ |
+|1| Core functionality | Mode switching, state sync, reconnect behavior   |
+|2| System correctness | App–device consistency, persistence of last mode |
+|3| Performance        | Mode change applied within 2 seconds             |
+|4| Battery logic      | 5% threshold enforcement and edge cases          |
+|5| Connectivity       | Bluetooth stability, reconnect reliability       |
+
+
+
+
+3. Focus areas in exploratory testing:
+
+|#| Scenario Type          | What I Would Explore                                   |
+|-| ---------------------- | ------------------------------------------------------ |
+|1| Real-world movement    | Walking, commuting, weak Bluetooth signal environments |	
+|2| Rapid interactions     | Quickly switching modes multiple times                 |
+|3| Context switching      | Music → call → music transitions                       |
+|4| Connection instability | Turning Bluetooth off/on, distance variations          |
+|5| Reconnect behavior     | Case open/close, earbuds re-pairing repeatedly         |
+|6| Battery edge cases     | One earbud low, case low, fluctuating battery %        |
+|7| UI consistency         | App state vs device state mismatch                     |
+
+
+
+
+4. Important regression areas:
+
+|#| Area                   | What to Validate                                       |
+|-| ---------------------- | ------------------------------------------------------ |
+|1| Bluetooth connectivity | Pairing, reconnect, stability                          |
+|2| Audio playback         | No interruption during mode switch                     |
+|3| Battery display        | Accuracy for left/right/case                           |
+|4| App lifecycle          | Background/foreground behavior                         |
+|5| Device settings        | Existing audio settings unaffected                     |
+|6| Previous features      | Existing audio functionality unaffected                |
+
+
+
+
+5. iOS vs Android coverage strategy:
+
+|#| Aspect                  | Approach                                                             |
+|-| ----------------------- | -------------------------------------------------------------------- |
+|1| Test execution          | Run full test suite on both platforms                                |
+|2| Device variation        | Include multiple Android vendors (Samsung, Sony, etc.)               |
+|3| OS behavior differences | Focus on Bluetooth stack differences and background execution limits |
+|4| UI consistency          | Ensure identical user experience across platforms                    |
+|5| Timing validation       | Compare mode switch latency across OS versions                       |
+|6| Issue tracking          | Log platform-specific defects separately                             |
