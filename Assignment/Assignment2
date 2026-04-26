@@ -1,0 +1,9 @@
+| # | Observation Area    | From logs in Wireshark                                           | Analysis                                                                          |
+| - | ------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| 1 | Session issue       | “Frame is out of any ‘connection handle’ session” shows up a lot | Wireshark isn’t able to map these packets to a known Bluetooth session            |
+| 2 | Connection handle   | Connection Handle = `0x083` across the frames                    | The device seems to think a connection is active, but tracking looks off          |
+| 3 | Device info missing | BD_ADDR is `00:00:00:00:00:00`, role is unknown                  | Likely missing info in the capture, not enough to identify the device             |
+| 4 | Packet flow         | ACL packets are still visible                                    | Data is clearly still flowing at some level                                       |
+| 5 | Packet flags        | PB/BC flags look normal                                          | Nothing obviously wrong at the basic ACL packet level                             |
+| 6 | Repeated issue      | Same session error appears throughout the trace                  | Not a one time, seems consistent across the capture                               |
+| 7 | Overall behavior    | Frequent “invalid session” warnings                              | Could point to a capture limitation, though a connection issue can’t be ruled out |
