@@ -1,0 +1,63 @@
+
+Analysis of BLE/Wireshark Log (3-device system)
+
+1. System overview:
+
+The log shows a Bluetooth Low Energy (BLE) system involving three devices. The iPhone(Device 1) 
+is communicating with multiple BLE peripherals (Device 2 and Device 3) using a shared proprietary
+(Encrypted control channel between app ↔ device) protocol. 
+However, several frames have flags as:
+“out of any connection handle session”
+Source and destination BD_ADDR = 00:00:00:00:00:00
+This indicates that some frames do not have a valid active BLE connection, so there are corrupted packets
+
+
+
+2. Device roles:
+   
+   Device 1:
+	 Name: Viv iphone 17 pro (Apple device)
+	 Role: Central controller / initiator
+	 Behavior: Sends ATT Write Commands (0x52) to specific handles(e.g. 0xB005), transmits large payloads.
+	 orchestrates all sessions and data flow
+   
+   
+   Device 2:
+     Name: Amadeus Audio Link
+	 Role: Peripheral(gateway device)
+	 Behavior: Receives ATT write commands from iPhone
+	 
+   Device 3:
+	 Name: Beo Grace Case
+	 Role: Peripheral(accessory device)
+	 Behavior: Receives ATT writes + sends notifications to iPhone 
+   
+
+3. Primary user scenario
+
+	The primary user scenario is a True Wireless Stereo (TWS) where a smartphone acts as the central controller, 
+	connecting to multiple audio/accessory devices to perform setup, initialization, and ongoing control/data 
+	exchange.
+
+
+4. Analysis steps:
+
+	- Identify all devices in the logs by Looking at BD_ADDR and device names
+		Found: iPhone, Amadeus Audio Link, Beo Grace Case, Swiss’s Grace
+
+	- Determine the central device
+		iPhone appears in most connections, Sends ATT Write Commands (0x52) and Receives notifications from devices
+
+	- Analyze communication pattern
+		Write Commands (0x52) + Notifications (0x1B) + Long-lived connections Indicate active session control / data exchange
+
+	- Inspect payload type
+		Large payloads (~200–250 bytes) + hex data suggests encrypted application data
+
+	- Look for protocol hints
+		ATT + L2CAP used throughout + Custom handles (0xB002, 0xB005)
+		Suggests vendor-specific BLE implementation
+
+	- Combine all observations
+		One central controller (iPhone) + Multiple connected peripherals + Continuous control/data exchange
+		Forms a device ecosystem
